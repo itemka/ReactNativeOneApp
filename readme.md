@@ -1,3 +1,5 @@
+INTRODUCTION
+
 - DOC https://reactnative.dev/docs/getting-started
 
 - DOC Expo https://docs.expo.io/versions/v37.0.0/tutorial/planning/
@@ -53,4 +55,7 @@
 
 - Event is special and different with the Web. It needs special components.
 
--
+
+WORK WITH COMPONENTS
+
+- switch between screens

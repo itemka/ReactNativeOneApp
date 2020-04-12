@@ -2,7 +2,6 @@ import React from "react";
 import {
   View,
   Text,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import styles from './styles';
@@ -10,27 +9,27 @@ import styles from './styles';
 export const Todo = ({
   todo,
   removeTodo,
-  id,
+  setTodoId,
 }) => {
   const handleOnLongPress = () => {
     removeTodo(id);
   };
 
+  const handleOnPressTouchableOpacity = () => {
+    console.log(`todo.id: `, todo.id);
+    setTodoId(todo.id);
+  };
+
   return (
     <TouchableOpacity
       activeOpasity={0.5}
-      onPress={() => { console.log(`todo.id: `, todo.id) }}
+      onPress={handleOnPressTouchableOpacity}
       onLongPress={handleOnLongPress}
     >
       <View style={styles.todo}>
         <Text style={styles.text}>
           {todo.title}
         </Text>
-        <Button
-          title="Close"
-          onPress={() => removeTodo(id)}
-          style={styles.close}
-        />
       </View>
     </TouchableOpacity>
   );
