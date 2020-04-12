@@ -1,8 +1,14 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
-import {NavBar} from "./src/components/NavBar";
-import {AddTodo} from "./src/components/AddTodo";
-import {Todo} from "./src/components/Todo";
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+} from 'react-native';
+import {
+  NavBar,
+  AddTodo,
+  Todo,
+} from './src/components';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -21,13 +27,11 @@ export default function App() {
 
   return (
     <View>
-      <NavBar title={`Todo App`}/>
+      <NavBar title="My App"/>
       <View style={styles.container}>
-
-
         <AddTodo addTodo={addTodo} todos={todos}/>
         <FlatList
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item.id.toString()} // react key
           data={todos}
           renderItem={({item}) => (
             <Todo
@@ -37,12 +41,6 @@ export default function App() {
             />
           )}
         />
-
-        {/*        <View>
-        {todos.map(item => <Todo key={item.id} todo={item}/>)}
-        </View>*/}
-
-
       </View>
     </View>
   )

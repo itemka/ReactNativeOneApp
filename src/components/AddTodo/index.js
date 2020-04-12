@@ -1,9 +1,16 @@
 import React, {useState} from "react";
-import {View, Text, StyleSheet, TextInput, Button, Alert} from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  Alert,
+} from "react-native";
+import styles from './styles';
 
 export const AddTodo = ({addTodo}) => {
   const [inputText, setInputText] = useState(``);
-  const pressHandler = () => {
+  const handlePress = () => {
     if (inputText.trim()) {
       addTodo(inputText);
       setInputText(``);
@@ -19,34 +26,16 @@ export const AddTodo = ({addTodo}) => {
         style={styles.input}
         value={inputText}
         onChangeText={text => setInputText(text)}
-        placeholder={`Input todo`}
+        placeholder="Input todo"
         autoCorrect={false}
         autoCapitalize='none'
-        // keyboardType="number-pad"
+        // TODO keyboardType="number-pad"
       />
       <Button
-        title={`Add`}
+        title="Add"
         style={styles.button}
-        onPress={pressHandler}
+        onPress={handlePress}
       />
     </View>
   )
 };
-
-const styles = StyleSheet.create({
-  block: {
-    flexDirection: `row`,
-    justifyContent: `space-between`,
-    alignItems: `center`,
-    marginBottom: 15,
-  },
-  input: {
-    padding: 10,
-    width: `70%`,
-    borderStyle: `solid`,
-    borderBottomWidth: 1,
-    borderColor: `gray`,
-    borderBottomColor: `red`
-  },
-  button: {}
-});

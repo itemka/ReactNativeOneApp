@@ -1,31 +1,37 @@
 import React from "react";
-import {View, Text, StyleSheet, TextInput, Button, TouchableOpacity} from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TouchableOpacity,
+} from "react-native";
+import styles from './styles';
 
-export const Todo = ({todo, removeTodo, id}) => {
+export const Todo = ({
+  todo,
+  removeTodo,
+  id,
+}) => {
+  const handleOnLongPress = () => {
+    removeTodo(id);
+  };
 
   return (
     <TouchableOpacity
       activeOpasity={0.5}
-      onPress={() => {
-        console.log(`todo.id: `, todo.id)
-      }}
-      onLongPress={() => removeTodo(id)}
+      onPress={() => { console.log(`todo.id: `, todo.id) }}
+      onLongPress={handleOnLongPress}
     >
       <View style={styles.todo}>
-        <Text>{todo.title}</Text>
+        <Text style={styles.text}>
+          {todo.title}
+        </Text>
+        <Button
+          title="Close"
+          onPress={() => removeTodo(id)}
+          style={styles.close}
+        />
       </View>
     </TouchableOpacity>
-  )
+  );
 };
-
-const styles = StyleSheet.create({
-  todo: {
-    marginTop: 10,
-    flexDirection: `row`,
-    alignItems: `center`,
-    padding: 15,
-    borderWidth: 1,
-    borderColor: `#eee`,
-    borderRadius: 5,
-  }
-});
