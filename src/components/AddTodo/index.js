@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   View,
-  Text,
   TextInput,
   Button,
   Alert,
 } from "react-native";
 import styles from './styles';
+import PropTypes from 'prop-types';
 
-export const AddTodo = ({addTodo}) => {
+export const AddTodo = ({ addTodo }) => {
   const [inputText, setInputText] = useState(``);
   const handlePress = () => {
     if (inputText.trim()) {
@@ -38,4 +38,8 @@ export const AddTodo = ({addTodo}) => {
       />
     </View>
   )
+};
+
+AddTodo.propTypes = {
+  addTodo: PropTypes.func.isRequired,
 };

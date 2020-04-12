@@ -59,3 +59,5 @@ INTRODUCTION
 WORK WITH COMPONENTS
 
 - switch between screens
+
+- modal window

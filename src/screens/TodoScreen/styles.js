@@ -1,13 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  edit: {
-    flexDirection: `row`,
-    justifyContent: `space-between`,
-    alignItems: `center`,
-    marginBottom: 15,
-    backgroundColor: `whitesmoke`,
-    padding: 20
+  card: {
+    marginBottom: 20,
   },
   text: {
     width: `50%`,

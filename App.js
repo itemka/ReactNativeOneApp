@@ -1,27 +1,49 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Alert,
+} from 'react-native';
 import { NavBar } from './src/components';
 import { MainScreen } from './src/screens/MainScreen';
 import { TodoScreen } from './src/screens/TodoScreen';
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    { id: '1', title: 'test1' },
-    { id: '2', title: 'test2' },
-    { id: '3', title: 'test3' },
-  ]);
-  const [todoId, setTodoId] = useState('2');
+  const [todos, setTodos] = useState([]);
+  const [todoId, setTodoId] = useState(null);
+
   const addTodo = title => {
     setTodos(prev => [
       {
         id: Date.now().toString(),
-        title
+        title,
       },
       ...prev,
     ])
   };
+
   const removeTodo = id => {
-    setTodos(prev => prev.filter(item => item.id !== id))
+    const currentToto = todos.find(t => t.id === id);
+    Alert.alert(
+      'Delete',
+      `Are you sure to delete ${currentToto.title}?`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            setTodoId(null);
+            setTodos(prev => prev.filter(item => item.id !== id));
+          }
+        },
+      ],
+      {cancelable: false}, // the window will not be closing
+    );
+  };
+
+  const saveEditTodo = (todoId, title) => {
+    setTodos( prev => prev.map(item => item.id === todoId ? { ...item, title } : item ));
   };
 
   const selectedTodo = todos.find(item => item.id === todoId);
@@ -43,6 +65,8 @@ export default function App() {
             <TodoScreen
               setTodoId={setTodoId}
               todo={selectedTodo}
+              removeTodo={removeTodo}
+              saveEditTodo={saveEditTodo}
             />
           )
         }

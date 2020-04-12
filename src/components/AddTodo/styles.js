@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { THEME } from './../../utils/constants';
 
 export default StyleSheet.create({
   block: {
@@ -12,7 +13,7 @@ export default StyleSheet.create({
     width: `70%`,
     borderStyle: `solid`,
     borderBottomWidth: 1,
-    borderColor: `gray`,
+    borderColor: THEME.GREY_COLOR,
     borderBottomColor: `red`
   },
   button: {

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 export const Todo = ({
   todo,
@@ -12,11 +13,9 @@ export const Todo = ({
   setTodoId,
 }) => {
   const handleOnLongPress = () => {
-    removeTodo(id);
+    removeTodo(todo.id);
   };
-
   const handleOnPressTouchableOpacity = () => {
-    console.log(`todo.id: `, todo.id);
     setTodoId(todo.id);
   };
 
@@ -33,4 +32,10 @@ export const Todo = ({
       </View>
     </TouchableOpacity>
   );
+};
+
+Todo.propTypes = {
+  todo: PropTypes.instanceOf(Object).isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  setTodoId: PropTypes.func.isRequired,
 };
