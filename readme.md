@@ -1,5 +1,7 @@
 INTRODUCTION
 
+- Reload Emulator: android: ⌘ + M and iOS: ⌘ + R.
+
 - DOC https://reactnative.dev/docs/getting-started
 
 - DOC Expo https://docs.expo.io/versions/v37.0.0/tutorial/planning/
@@ -61,3 +63,18 @@ WORK WITH COMPONENTS
 - switch between screens
 
 - modal window
+
+
+EXPO ITEMS AND STYLES
+
+- To work with fonts, you need to download several fonts for local saving
+
+- fonts are added asynchronously (expo install expo-font)
+
+- install @expo/vector-icons
+
+- control keyboard
+
+- determine the platform
+
+- add adaptive styles

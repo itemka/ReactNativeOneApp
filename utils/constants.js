@@ -7,4 +7,6 @@ export const THEME = {
   BORDER_COLOR: `#eee`,
   EDIT_BUTTON_COLOR: `tan`,
   OK: `mediumseagreen`,
+  PADDING_HORIZONTAL: 30,
+  PADDING_VERTICAL: 20,
 };

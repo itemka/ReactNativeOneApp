@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
+  StyleSheet, //❗️
   View,
   Alert,
 } from 'react-native';
-import { NavBar } from './src/components';
-import { MainScreen } from './src/screens/MainScreen';
-import { TodoScreen } from './src/screens/TodoScreen';
+import { AppLoading } from 'expo'; //❗️
+import { NavBar } from './components';
+import { MainScreen } from './screens/MainScreen';
+import { TodoScreen } from './screens/TodoScreen';
+import { loadApplication } from './utils/helper';
+import { THEME } from './utils/constants';
 
 export default function App() {
+  const [isReady, setIsReady] = useState(false);
   const [todos, setTodos] = useState([]);
   const [todoId, setTodoId] = useState(null);
+
+  //❗️
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadApplication}
+        onError={err => console.log(err)}
+        onFinish={() => setIsReady(true)}
+      />
+    )
+  }
 
   const addTodo = title => {
     setTodos(prev => [
@@ -24,6 +39,7 @@ export default function App() {
 
   const removeTodo = id => {
     const currentToto = todos.find(t => t.id === id);
+    //❗️
     Alert.alert(
       'Delete',
       `Are you sure to delete ${currentToto.title}?`,
@@ -52,7 +68,7 @@ export default function App() {
     <View>
       <NavBar title="My App"/>
       <View style={styles.container}>
-        {!todoId
+        {!todoId //❗️
           ? (
             <MainScreen
               todos={todos}
@@ -77,7 +93,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
-    paddingVertical: 20,
+    paddingHorizontal: THEME.PADDING_HORIZONTAL,
+    paddingVertical: THEME.PADDING_VERTICAL,
   },
 });

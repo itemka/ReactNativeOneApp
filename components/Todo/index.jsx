@@ -1,11 +1,8 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import React from 'react';
+import { View, TouchableOpacity /*❗️*/ } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
+import { AppText } from '../ui/AppText';
 
 export const Todo = ({
   todo,
@@ -26,9 +23,9 @@ export const Todo = ({
       onLongPress={handleOnLongPress}
     >
       <View style={styles.todo}>
-        <Text style={styles.text}>
+        <AppText style={styles.text}>
           {todo.title}
-        </Text>
+        </AppText>
       </View>
     </TouchableOpacity>
   );

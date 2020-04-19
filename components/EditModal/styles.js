@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { THEME } from './../../utils/constants';
+import { THEME } from '../../utils/constants';
 
 export default StyleSheet.create({
   wrap: {

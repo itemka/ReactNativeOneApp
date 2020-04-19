@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { THEME } from './../../utils/constants';
-
+import { THEME } from '../../utils/constants';
+ //❗️
 export default StyleSheet.create({
   block: {
     flexDirection: `row`,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     borderBottomColor: `red`
   },
   button: {
-    backgroundColor: `limegreen`,
+    backgroundColor: `darkorange`,
     borderRadius: 5,
   }
 });

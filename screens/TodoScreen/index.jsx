@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
-  Button,
-  ScrollView,
-} from 'react-native';
+  // TODO Button,
+  ScrollView, //❗
+} from 'react-native';  
 import styles from './styles';
-import { THEME } from './../../utils/constants';
-import { AppCard, EditModal } from '../../components';
+import { THEME } from '../../utils/constants';
+import {
+  AppCard,
+  EditModal,
+  AppTextBold,
+  AppButton,
+} from '../../components';
 import PropTypes from 'prop-types';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
 
 export const TodoScreen = ({
   setTodoId,
@@ -43,30 +48,33 @@ export const TodoScreen = ({
         handleSaveEdit={handleSaveEdit}
       />
       <AppCard>
-        <Text style={styles.text}>{todo.title}</Text>
-        <View style={styles.button}>
-          <Button
-            title="Edit"
+        <AppTextBold style={styles.text}>{todo.title}</AppTextBold>
+        <View style={{ ...styles.button, ...styles.buttonEdit }}>
+          <AppButton
             onPress={handleOnPressEdit}
             color={THEME.EDIT_BUTTON_COLOR}
-          />
+          >
+            <FontAwesome name="edit" size={20}/>
+          </AppButton>
         </View>
       </AppCard>
       <View style={styles.bottomButton}>
         <View style={styles.button}>
-          <Button
-            title="Close"
-            onPress={handleOnPressClose}
+          <AppButton
+            onPress={handleOnPressClose} 
             color={THEME.GREY_COLOR}
-            color="#757575"
-          />
+          >
+            <AntDesign name="back" size={20}/>
+          </AppButton>
         </View>
         <View style={styles.button}>
-          <Button
-            title="Remove"
-            onPress={handleOnPressRemove}
+          <AppButton
+            onPress={handleOnPressRemove} 
             color={THEME.DANGER_COLOR}
-          />
+          >
+            {/* TODO Remove ❗️❗️❗️*/}
+            <FontAwesome name="remove" size={20}/>
+          </AppButton>
         </View>
       </View>
     </ScrollView>
@@ -79,3 +87,11 @@ TodoScreen.propTypes = {
   removeTodo: PropTypes.func.isRequired,
   saveEditTodo: PropTypes.func.isRequired,
 };
+
+
+// TODO <Button ❗️❗️❗️
+//   title="Close"
+//   onPress={handleOnPressClose}
+//   color={THEME.GREY_COLOR}
+//   color="#757575"
+//  />

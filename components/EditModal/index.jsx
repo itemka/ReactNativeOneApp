@@ -3,12 +3,13 @@ import {
   View,
   TextInput,
   Button,
-  Modal,
+  Modal, //❗️
   Alert,
 } from 'react-native';
 import styles from './styles';
-import { THEME } from './../../utils/constants';
+import { THEME } from '../../utils/constants';
 import PropTypes from 'prop-types';
+import { AppButton } from '../AppButton';
 
 export const EditModal = ({
   isModal,
@@ -47,16 +48,12 @@ export const EditModal = ({
           onChangeText={setTitle}
         />
         <View style={styles.buttons}>
-          <Button
-            title="Cancel"
-            onPress={handleOnCancel}
-            color={THEME.DANGER_COLOR}
-          />
-          <Button
-            title="Save"
-            color={THEME.OK}
-            onPress={handleOnSave}
-          />
+          <AppButton onPress={handleOnCancel} color={THEME.DANGER_COLOR}>
+            Cancel
+          </AppButton>
+          <AppButton color={THEME.OK} onPress={handleOnSave}>
+            Save
+          </AppButton>
         </View>
       </View>
     </Modal>

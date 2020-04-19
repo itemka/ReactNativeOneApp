@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { THEME } from './../../utils/constants';
+import { THEME } from '../../utils/constants';
 
 export default StyleSheet.create({
   todo: {
@@ -14,6 +14,6 @@ export default StyleSheet.create({
   text: {
     width: `70%`,
     marginRight: 20,
-    fontSize: 20
+    fontSize: 20,
   },
 });

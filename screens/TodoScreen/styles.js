@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 export default StyleSheet.create({
   card: {
@@ -16,6 +16,9 @@ export default StyleSheet.create({
   button: {
     borderRadius: 5,
     padding: 5,
-    width: `40%`,
-  }
+    width: Dimensions.get('window').width / 3, // for adaptive styles❗️
+  },
+  buttonEdit: {
+    width: Dimensions.get('window').width / 6,
+  },
 });
