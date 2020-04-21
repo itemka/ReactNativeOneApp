@@ -7,13 +7,13 @@ import { AppText } from '../ui/AppText';
 export const Todo = ({
   todo,
   removeTodo,
-  setTodoId,
+  changeScreen,
 }) => {
-  const handleOnLongPress = () => {
+  const handleOnLongPress = (e) => {
     removeTodo(todo.id);
   };
   const handleOnPressTouchableOpacity = () => {
-    setTodoId(todo.id);
+    changeScreen(todo.id);
   };
 
   return (
@@ -34,5 +34,5 @@ export const Todo = ({
 Todo.propTypes = {
   todo: PropTypes.instanceOf(Object).isRequired,
   removeTodo: PropTypes.func.isRequired,
-  setTodoId: PropTypes.func.isRequired,
+  changeScreen: PropTypes.func.isRequired,
 };

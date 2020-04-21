@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+} from 'react';
 import {
   View,
   FlatList, //❗️
@@ -6,16 +10,19 @@ import {
   Dimensions,
 } from 'react-native';
 import { AddTodo, Todo } from '../../components';
-import PropTypes from 'prop-types';
 import styles from './styles';
 import { THEME } from '../../utils/constants';
+import { TodoContext } from '../../context/todo/context';
+import { ScreenContext } from '../../context/screen/context';
 
-export const MainScreen = ({
-  addTodo,
-  todos,
-  removeTodo,
-  setTodoId,
-}) => {
+export const MainScreen = () => {
+  const {
+    todos,
+    addTodo,
+    removeTodo,
+   } = useContext(TodoContext);
+  const { changeScreen } = useContext(ScreenContext);
+
   const defaultWidth = Dimensions.get('window').width - THEME.PADDING_HORIZONTAL * 2;
   const [deviceWidth, setDeviceWidth] = useState(defaultWidth);
 
@@ -44,7 +51,7 @@ export const MainScreen = ({
                   <Todo
                     todo={item}
                     removeTodo={removeTodo}
-                    setTodoId={setTodoId}
+                    changeScreen={changeScreen}
                   />
                 )}
               />
@@ -59,11 +66,4 @@ export const MainScreen = ({
       }
     </View>
   );
-};
-
-MainScreen.propTypes = {
-  addTodo: PropTypes.func.isRequired,
-  todos: PropTypes.instanceOf(Array).isRequired,
-  removeTodo: PropTypes.func.isRequired,
-  setTodoId: PropTypes.func.isRequired,
 };

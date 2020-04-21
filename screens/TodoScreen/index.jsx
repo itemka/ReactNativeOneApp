@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   // TODO Button,
@@ -12,16 +12,21 @@ import {
   AppTextBold,
   AppButton,
 } from '../../components';
-import PropTypes from 'prop-types';
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
+import { TodoContext } from '../../context/todo/context';
+import { ScreenContext } from '../../context/screen/context';
 
-export const TodoScreen = ({
-  setTodoId,
-  todo,
-  removeTodo,
-  saveEditTodo,
-}) => {
+export const TodoScreen = () => {
+  const {
+    removeTodo,
+    updateTodo,
+    todos,
+  } = useContext(TodoContext);
+  const { changeScreen, todoId } = useContext(ScreenContext);
   const [isModal, setModal] = useState(false);
+
+  const todo = todos.find(item => item.id === todoId);
+
   const handleOnPressEdit = () => {
     setModal(true);
   };
@@ -30,10 +35,10 @@ export const TodoScreen = ({
   };
   const handleSaveEdit = (newText) => {
     setModal(false);
-    saveEditTodo(todo.id, newText);
+    updateTodo(todo.id, newText);
   };
   const handleOnPressClose = () => {
-    setTodoId(null);
+    changeScreen(null);
   };
   const handleOnPressRemove = () => {
     removeTodo(todo.id);
@@ -80,14 +85,6 @@ export const TodoScreen = ({
     </ScrollView>
   )
 }
-
-TodoScreen.propTypes = {
-  setTodoId: PropTypes.func.isRequired,
-  todo: PropTypes.instanceOf(Object).isRequired,
-  removeTodo: PropTypes.func.isRequired,
-  saveEditTodo: PropTypes.func.isRequired,
-};
-
 
 // TODO <Button ❗️❗️❗️
 //   title="Close"

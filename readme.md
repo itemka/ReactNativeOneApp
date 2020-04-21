@@ -78,3 +78,8 @@ EXPO ITEMS AND STYLES
 - determine the platform
 
 - add adaptive styles
+
+
+WORK WITH CONTECST
+
+- useReducer, useContext (code refactor)
