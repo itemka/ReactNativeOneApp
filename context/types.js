@@ -4,4 +4,10 @@ export const actionTypes = {
   REMOVE_TODO: `app/REMOVE_TODO`,
   /*---------------------------*/
   CHANGE_SCREEN: `screen/CHANGE_SCREEN`,
+  /*---------------------------*/
+  SHOW_LOADER: `SHOW_LOADER`,
+  HIDE_LOADER: `HIDE_LOADER`,
+  SHOW_ERROR: `SHOW_ERROR`,
+  CLEAR_ERROR: `CLEAR_ERROR`,
+  FETCH_TODOS: `FETCH_TODOS`,
 };

@@ -83,3 +83,10 @@ EXPO ITEMS AND STYLES
 WORK WITH CONTECST
 
 - useReducer, useContext (code refactor)
+
+
+WORK WITH SERVER
+
+- us firebase
+
+- create universal HTTP class and add to functions

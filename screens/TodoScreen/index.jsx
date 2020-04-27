@@ -33,9 +33,9 @@ export const TodoScreen = () => {
   const handleCancleEdit = () => {
     setModal(false);
   };
-  const handleSaveEdit = (newText) => {
+  const handleSaveEdit = async (newText) => {
+    await updateTodo(todo.id, newText);
     setModal(false);
-    updateTodo(todo.id, newText);
   };
   const handleOnPressClose = () => {
     changeScreen(null);

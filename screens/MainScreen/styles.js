@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { THEME } from "../../utils/constants";
 
 export default StyleSheet.create({
   imgWrap: {
@@ -12,5 +13,18 @@ export default StyleSheet.create({
     width: `100%`,
     height: `100%`,
     resizeMode: `contain`,
+  },
+  wrapperLoading: {
+    flex: 1,
+  },
+  center: {
+    flex: 1,
+    justifyContent: `center`,
+    alignItems: `center`,
+  },
+  error: {
+    flex: 1,
+    fontSize: 20,
+    color: THEME.DANGER_COLOR,
   },
 });

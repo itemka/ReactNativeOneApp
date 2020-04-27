@@ -1,13 +1,10 @@
 import { actionTypes } from '../types';
 
 const handlers = {
-  [actionTypes.ADD_TODO]: (state, { title }) => ({
+  [actionTypes.ADD_TODO]: (state, { id, title }) => ({
     ...state,
     todos: [
-      {
-        id: Date.now().toString(),
-        title,
-      },
+      { id, title },
       ...state.todos,
     ],
   }),
@@ -19,6 +16,11 @@ const handlers = {
     ...state,
     todos: state.todos.map(todo => todo.id === id ? { ...todo, title } : todo),
   }),
+  [actionTypes.SHOW_LOADER]: state => ({ ...state, loading: true }),
+  [actionTypes.HIDE_LOADER]: state => ({ ...state, loading: false }),
+  [actionTypes.SHOW_ERROR]: (state, { error }) => ({ ...state, error }),
+  [actionTypes.CLEAR_ERROR]: state => ({ ...state, error: null }),
+  [actionTypes.FETCH_TODOS]: (state, { todos }) => ({ ...state, todos }),
   DEFAULT: state => state,
 };
 
