@@ -32,10 +32,7 @@ export const EditModal = ({
   }
 
   return (
-    <Modal
-      visible={isModal}
-      animationType="slide"
-    >
+    <Modal visible={isModal} animationType="slide">
       <View style={styles.wrap}>
         <TextInput
           style={styles.input}

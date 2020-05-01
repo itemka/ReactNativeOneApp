@@ -55,28 +55,19 @@ export const TodoScreen = () => {
       <AppCard>
         <AppTextBold style={styles.text}>{todo.title}</AppTextBold>
         <View style={{ ...styles.button, ...styles.buttonEdit }}>
-          <AppButton
-            onPress={handleOnPressEdit}
-            color={THEME.EDIT_BUTTON_COLOR}
-          >
+          <AppButton onPress={handleOnPressEdit} color={THEME.EDIT_BUTTON_COLOR}>
             <FontAwesome name="edit" size={20}/>
           </AppButton>
         </View>
       </AppCard>
       <View style={styles.bottomButton}>
         <View style={styles.button}>
-          <AppButton
-            onPress={handleOnPressClose} 
-            color={THEME.GREY_COLOR}
-          >
+          <AppButton onPress={handleOnPressClose} color={THEME.GREY_COLOR}>
             <AntDesign name="back" size={20}/>
           </AppButton>
         </View>
         <View style={styles.button}>
-          <AppButton
-            onPress={handleOnPressRemove} 
-            color={THEME.DANGER_COLOR}
-          >
+          <AppButton onPress={handleOnPressRemove} color={THEME.DANGER_COLOR}>
             {/* TODO Remove ❗️❗️❗️*/}
             <FontAwesome name="remove" size={20}/>
           </AppButton>

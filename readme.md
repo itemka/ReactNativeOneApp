@@ -6,7 +6,7 @@ INTRODUCTION
 
 - DOC Expo https://docs.expo.io/versions/v37.0.0/tutorial/planning/
 
-- default <Viev> has dusplay: `flax`
+- default `<Viev>` has dusplay: `flax`
 
 - flex: 1 - all screen size
 
@@ -52,8 +52,6 @@ INTRODUCTION
     )}
   />
 ```
-
-- Есть разный список задач передаваемых параметров, которые можно увидеть в документации
 
 - Event is special and different with the Web. It needs special components.
 

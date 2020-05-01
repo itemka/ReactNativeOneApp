@@ -10,7 +10,12 @@ import {
   Image, //❗️
   Dimensions,
 } from 'react-native';
-import { AddTodo, Todo, AppText, AppButton } from '../../components';
+import {
+  AddTodo,
+  Todo,
+  AppText,
+  AppButton,
+} from '../../components';
 import styles from './styles';
 import { THEME } from '../../utils/constants';
 import { TodoContext } from '../../context/todo/context';
@@ -34,6 +39,10 @@ export const MainScreen = () => {
   const [deviceWidth, setDeviceWidth] = useState(defaultWidth);
 
   const loadTodos = useCallback(async () => await fetchTodos(), [fetchTodos]);
+
+  const handleOnMomentumScrollBegin = () => {
+    loadTodos();
+  }
 
   useEffect(() => {
     loadTodos();
@@ -70,10 +79,14 @@ export const MainScreen = () => {
       <Loader loading={loading}>
         {todos.length
           ? (
-              <View style={{ width: deviceWidth }}>
+              <View style={{ ...styles.wrapperFlatList, width: deviceWidth }}>
                 <FlatList
+                  contentContainerStyle={{}}
+                  scrollEnabled={true}
                   keyExtractor={item => item.id.toString()} // react key ❗️
+                  showsHorizontalScrollIndicator={false}
                   data={todos}
+                  onMomentumScrollBegin={handleOnMomentumScrollBegin}
                   renderItem={({item}) => (
                     <Todo
                       todo={item}

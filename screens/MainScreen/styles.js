@@ -1,7 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { THEME } from "../../utils/constants";
 
 export default StyleSheet.create({
+  wrapperFlatList: {
+    height: Dimensions.get('window').height/4*2.5,
+  },
   imgWrap: {
     flexDirection: `column`,
     justifyContent: `center`,

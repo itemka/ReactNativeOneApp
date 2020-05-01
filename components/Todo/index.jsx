@@ -21,6 +21,7 @@ export const Todo = ({
       activeOpasity={0.5}
       onPress={handleOnPressTouchableOpacity}
       onLongPress={handleOnLongPress}
+      style={{ flex: 1 }}
     >
       <View style={styles.todo}>
         <AppText style={styles.text}>

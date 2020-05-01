@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform,
+} from 'react-native';
 import styles from './styles';
 import { AppTextBold } from '../ui/AppTextBold';
 import { THEME } from '../../utils/constants';
