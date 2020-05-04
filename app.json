@@ -1,24 +1,20 @@
 {
   "expo": {
-    "name": "ReactNativeOneApp",
+    "name": "Todo list",
     "slug": "ReactNativeOneApp",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android"],
     "packagerOpts": {
       "assetExts": ["ttf"]
     },
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/rn-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/rn-splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#242832"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -27,7 +23,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.itemkadev.todo-list-rn-app",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.itemkadev.todo_list_rn_app",
+      "versionCode": 1,
+      "permissions": []
     }
   }
 }

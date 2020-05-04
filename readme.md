@@ -1,6 +1,6 @@
-INTRODUCTION
+# INTRODUCTION
 
-- Reload Emulator: android: ⌘ + M and iOS: ⌘ + R.
+- Reload Emulator: `android: ⌘ + M` and `iOS: ⌘ + R`.
 
 - DOC https://reactnative.dev/docs/getting-started
 
@@ -56,20 +56,20 @@ INTRODUCTION
 - Event is special and different with the Web. It needs special components.
 
 
-WORK WITH COMPONENTS
+# WORK WITH COMPONENTS
 
 - switch between screens
 
 - modal window
 
 
-EXPO ITEMS AND STYLES
+# EXPO ITEMS AND STYLES
 
 - To work with fonts, you need to download several fonts for local saving
 
-- fonts are added asynchronously (expo install expo-font)
+- fonts are added asynchronously (`expo install expo-font`)
 
-- install @expo/vector-icons
+- `yarn add @expo/vector-icons`
 
 - control keyboard
 
@@ -78,13 +78,29 @@ EXPO ITEMS AND STYLES
 - add adaptive styles
 
 
-WORK WITH CONTECST
+# WORK WITH CONTECST
 
-- useReducer, useContext (code refactor)
+- `useReducer`, `useContext` (code refactor)
 
 
-WORK WITH SERVER
+# WORK WITH SERVER
 
 - us firebase
 
 - create universal HTTP class and add to functions
+
+# PREPARATION AND DEPLOY
+
+- https://docs.expo.io/workflow/configuration/
+
+- https://docs.expo.io/guides/splash-screens/#customize-the-splash-screen-for-your-app
+
+- `expo publish` -> log in Expo -> get link: https://expo.io/@itemka/ReactNativeOneApp
+
+- `expo build:android` and `expo build:ios` https://docs.expo.io/distribution/building-standalone-apps/
+
+- `expo upload:ios` (https://docs.expo.io/distribution/building-standalone-apps/)
+
+- for get keys: `expo fetch:android:keystore` and then `expo upload:android`
+
+- `expo build:android -t apk` -> Build queued... -> then get apk by the link, for example: https://expo.io/artifacts/221aa18c-91ef-44a6-909e-e03f7c2f3ab2
